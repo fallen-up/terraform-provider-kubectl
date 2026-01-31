@@ -23,7 +23,7 @@ terraform {
 
   required_providers {
     kubectl = {
-      source  = "gavinbunney/kubectl"
+      source  = "fallen-up/kubectl"
       version = ">= 1.7.0"
     }
   }
@@ -38,7 +38,7 @@ The following one-liner script will fetch the latest provider version and downlo
 
 ```bash
 $ mkdir -p ~/.terraform.d/plugins && \
-      curl -Ls https://api.github.com/repos/gavinbunney/terraform-provider-kubectl/releases/latest \
+      curl -Ls https://api.github.com/repos/fallen-up/terraform-provider-kubectl/releases/latest \
       | jq -r ".assets[] | select(.browser_download_url | contains(\"$(uname -s | tr A-Z a-z)\")) | select(.browser_download_url | contains(\"amd64\")) | .browser_download_url" \
       | xargs -n 1 curl -Lo ~/.terraform.d/plugins/terraform-provider-kubectl.zip && \
       pushd ~/.terraform.d/plugins/ && \
@@ -52,7 +52,7 @@ $ mkdir -p ~/.terraform.d/plugins && \
 
 #### Install manually
 
-If you don't want to use the one-liner above, you can download a binary for your system from the [release page](https://github.com/gavinbunney/terraform-provider-kubectl/releases), 
+If you don't want to use the one-liner above, you can download a binary for your system from the [release page](https://github.com/fallen-up/terraform-provider-kubectl/releases), 
 then either place it at the root of your Terraform folder or in the Terraform plugin folder on your system. 
 
 ## Configuration

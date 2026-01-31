@@ -1,6 +1,6 @@
 # Kubernetes "kubectl" Provider 
 
-![Build Status](https://github.com/gavinbunney/terraform-provider-kubectl/actions/workflows/build.yml/badge.svg) [![user guide](https://img.shields.io/badge/-user%20guide-blue)](https://registry.terraform.io/providers/gavinbunney/kubectl)
+![Build Status](https://github.com/fallen-up/terraform-provider-kubectl/actions/workflows/build.yml/badge.svg) [![user guide](https://img.shields.io/badge/-user%20guide-blue)](https://registry.terraform.io/providers/fallen-up/kubectl)
 
 This provider is the best way of managing Kubernetes resources in Terraform, by allowing you to use the thing 
 Kubernetes loves best - yaml!
@@ -25,7 +25,7 @@ terraform {
 
   required_providers {
     kubectl = {
-      source  = "gavinbunney/kubectl"
+      source  = "fallen-up/kubectl"
       version = ">= 1.7.0"
     }
   }
@@ -40,7 +40,7 @@ The following one-liner script will fetch the latest provider version and downlo
 
 ```bash
 $ mkdir -p ~/.terraform.d/plugins && \
-      curl -Ls https://api.github.com/repos/gavinbunney/terraform-provider-kubectl/releases/latest \
+      curl -Ls https://api.github.com/repos/fallen-up/terraform-provider-kubectl/releases/latest \
       | jq -r ".assets[] | select(.browser_download_url | contains(\"$(uname -s | tr A-Z a-z)\")) | select(.browser_download_url | contains(\"amd64\")) | .browser_download_url" \
       | xargs -n 1 curl -Lo ~/.terraform.d/plugins/terraform-provider-kubectl.zip && \
       pushd ~/.terraform.d/plugins/ && \
@@ -54,7 +54,7 @@ $ mkdir -p ~/.terraform.d/plugins && \
 
 #### Install manually
 
-If you don't want to use the one-liner above, you can download a binary for your system from the [release page](https://github.com/gavinbunney/terraform-provider-kubectl/releases), 
+If you don't want to use the one-liner above, you can download a binary for your system from the [release page](https://github.com/fallen-up/terraform-provider-kubectl/releases), 
 then either place it at the root of your Terraform folder or in the Terraform plugin folder on your system.
 
 ## Quick Start
@@ -96,7 +96,7 @@ YAML
 }
 ```
 
-See [User Guide](https://registry.terraform.io/providers/gavinbunney/kubectl/latest) for details on installation and all the provided data and resource types.
+See [User Guide](https://registry.terraform.io/providers/fallen-up/kubectl/latest) for details on installation and all the provided data and resource types.
 
 ---
 
@@ -110,13 +110,13 @@ To compile the provider, run `make build`. This will build the provider and put 
 ### Building The Provider
 
 ```sh
-$ go get github.com/gavinbunney/terraform-provider-kubectl
+$ go get github.com/fallen-up/terraform-provider-kubectl
 ```
 
 Enter the provider directory and build the provider
 
 ```sh
-$ cd $GOPATH/src/github.com/gavinbunney/terraform-provider-kubectl
+$ cd $GOPATH/src/github.com/fallen-up/terraform-provider-kubectl
 $ make build
 ```
 

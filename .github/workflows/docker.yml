@@ -47,7 +47,7 @@ jobs:
 
       - name: Cache images
         run: |
-          new_image_tag="ghcr.io/gavinbunney/terraform-provider-kubectl/testacc-$(echo '${{matrix.image}}' | sed 's/\//-/')"
+          new_image_tag="ghcr.io/fallen-up/terraform-provider-kubectl/testacc-$(echo '${{matrix.image}}' | sed 's/\//-/')"
           echo "Caching ${{matrix.image}} as $new_image_tag"
           docker rmi ${{matrix.image}} --force
           docker pull ${{matrix.image}} --platform linux/amd64

@@ -1,7 +1,7 @@
 package main
 
 import (
-	kubernetes "github.com/gavinbunney/terraform-provider-kubectl/kubernetes"
+	kubernetes "github.com/fallen-up/terraform-provider-kubectl/kubernetes"
 	goplugin "github.com/hashicorp/go-plugin"
 	"github.com/hashicorp/terraform-plugin-go/tfprotov5"
 	"github.com/hashicorp/terraform-plugin-go/tfprotov5/tf5server"

@@ -4,8 +4,8 @@ import (
 	"context"
 	"crypto/sha256"
 	"fmt"
-	"github.com/gavinbunney/terraform-provider-kubectl/flatten"
-	"github.com/gavinbunney/terraform-provider-kubectl/yaml"
+	"github.com/fallen-up/terraform-provider-kubectl/flatten"
+	"github.com/fallen-up/terraform-provider-kubectl/yaml"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"io/ioutil"
@@ -265,7 +265,7 @@ metadata:
 			}
 
 			for _, s := range sensitiveFields {
-				fields := strings.Split(s, ".")
+				fields := splitWithEscape(s, '.', '\\')
 				_, fieldExists, err := meta_v1_unstruct.NestedFieldNoCopy(obfuscatedYaml.Raw.Object, fields...)
 				if fieldExists {
 					err = meta_v1_unstruct.SetNestedField(obfuscatedYaml.Raw.Object, "(sensitive value)", fields...)
